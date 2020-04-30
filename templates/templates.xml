@@ -52,12 +52,12 @@
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="/"><i class="fa fa-home"/></a></li>
                     <t t-if="request_name">
-                        <li class="breadcrumb-item"><a href="/requests">Requests</a></li>
-                        <li class="breadcrumb-item active" t-if="request_name == 'new'">New</li>
+                        <li class="breadcrumb-item"><a href="/requests">Citas</a></li>
+                        <li class="breadcrumb-item active" t-if="request_name == 'new'">Nueva</li>
                         <li class="breadcrumb-item active" t-else=""><t t-esc="request_name"/></li>
                     </t>
                     <t t-else="">
-                        <li class="breadcrumb-item active">Requests</li>
+                        <li class="breadcrumb-item active">Citas</li>
                     </t>
                 </ol>
             </div>
@@ -234,20 +234,20 @@
 
                 <t t-call="crnd_wsd.wsd_request_navigation">
                     <a class="btn btn-primary"
-                        href="/requests/new">Create request</a>
+                        href="/requests/new">Crear Cita Nueva</a>
                 </t>
 
                 <t t-call="crnd_wsd.wsd_requests_filterbox"/>
                 <t t-if="request.website.is_public_user()">
                     <div class="row">
                         <div class="oe_structure text-center col-md-12 mt24">
-                            <h4>Please,
+                            <h4>Por favor,
                                 <t t-if="request.env['res.users']._get_signup_invitation_scope() == 'b2c'">
-                                    <a t-attf-href="/web/signup?{{ get_redirect() }}">Sign Up</a>
-                                    or
+                                    <a t-attf-href="/web/signup?{{ get_redirect() }}">Registrate</a>
+                                    o
                                 </t>
-                                <a t-attf-href="/web/login?{{ get_redirect() }}">Sign In</a>
-                                to be able to view and create requests.
+                                <a t-attf-href="/web/login?{{ get_redirect() }}">Inicia sesion</a>
+                                para poder ver y crear solicitudes.
                             </h4>
                         </div>
                     </div>
@@ -255,7 +255,7 @@
                 <t t-elif="not reqs">
                     <div class="row">
                         <div class="oe_structure col-md-12 mb16" align="center">
-                            <h3>There are currently no requests.</h3>
+                            <h3>Actualmente no hay nada.</h3>
                             <p>:(</p>
                         </div>
                     </div>
@@ -353,7 +353,7 @@
     <template id="wsd_request_portal_my_home" name="Portal My Home: request entries" inherit_id="portal.portal_my_home" priority="40">
         <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
             <t t-if="request_count" t-call="portal.portal_docs_entry">
-                <t t-set="title">Requests</t>
+                <t t-set="title">CitasV2</t>
                 <t t-set="url" t-value="'/requests/my'"/>
                 <t t-set="count" t-value="request_count"/>
             </t>
